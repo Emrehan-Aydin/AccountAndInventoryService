@@ -8,26 +8,26 @@ namespace ShopInGame.Entities
     public class Product:Item
     {
         public Product(){}
-        private double productPrice;
-        public double ProductPrice { get { return productPrice; } set { productPrice = value; } }
+        private double price;
+        public double Price { get { return price; } set { price = value; } }
 
-        private double productDiscountPrice;
-        public double ProductDiscountPrice // Kapmanyalı fiyat
+        private double discountPrice;
+        public double DiscountPrice // Kapmanyalı fiyat
         {
             get // İlk oluşturulan ürünler kampanyasız bir şekilde oluşturulurlarsa gerçek fiyatı korur. Bir önlem.
             {
                 if (ifHaveDiscount == null)
                 {
-                    return productPrice;
+                    return price;
                 }
                 else
                 {
-                    return productDiscountPrice;
+                    return discountPrice;
                 }
             }
             set
             {
-                productDiscountPrice = value;
+                discountPrice = value;
             }
         }
         private ProductDiscount ifHaveDiscount;
@@ -42,11 +42,11 @@ namespace ShopInGame.Entities
                 ifHaveDiscount = value;
                 if (ifHaveDiscount == null)
                 {
-                    productDiscountPrice = productPrice;
+                    discountPrice = Price;
                 }
                 else
                 {
-                    productDiscountPrice = productPrice - (productPrice * ifHaveDiscount.DiscountValue / 100);
+                    discountPrice = price - (price * ifHaveDiscount.DiscountValue / 100);
                 }
                 
             }

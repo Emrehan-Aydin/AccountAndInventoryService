@@ -11,7 +11,7 @@ namespace ShopInGame.Concreate
         public void Buy(Account account, Product product)
         {
             account.InventoryItems.Add(product);
-            Console.WriteLine("{0} kullanıcısı {1} TL değerindeki {2} itemini satın aldı.",account.AccountName,product.ProductDiscountPrice,product.ItemName);
+            Console.WriteLine("{0} kullanıcısı {1} TL değerindeki {2} itemini satın aldı.",account.AccountName,product.DiscountPrice,product.ItemName);
         }
 
     }

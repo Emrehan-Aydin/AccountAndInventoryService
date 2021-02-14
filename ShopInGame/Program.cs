@@ -39,7 +39,7 @@ namespace ShopInGame
             {
                 ItemId = 1,
                 ItemName = "+9 Dolunay Kılıcı", // aga be :)
-                ProductPrice = 50,
+                Price = 50,
             };
             // Gerçek Oyuncu Oluştur.
             Account uye1 = new Member
