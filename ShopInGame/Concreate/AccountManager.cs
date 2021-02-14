@@ -10,11 +10,11 @@ namespace ShopInGame.Concreate
     {
         public void Delete(Account account)
         {
-            Console.WriteLine(account.AccountName + " Kullanıcısı Silindi");
+            Console.WriteLine(account.Name + " Kullanıcısı Silindi");
         }
         public void Update(Account account)
         {
-            Console.WriteLine(account.AccountName + " Kullanıcısı Güncellendi");
+            Console.WriteLine(account.Name + " Kullanıcısı Güncellendi");
         }
     }
 }

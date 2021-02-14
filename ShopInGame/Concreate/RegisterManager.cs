@@ -17,7 +17,7 @@ namespace ShopInGame.Concreate
         {
             if(_checkRealPerson.CheckRealPerson(account))
             {  
-                Console.WriteLine(account.AccountName +" Adlı kullanıcı Kayıt Edildi");
+                Console.WriteLine(account.Name +" Adlı kullanıcı Kayıt Edildi");
             }
             else
             {

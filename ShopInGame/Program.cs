@@ -37,16 +37,16 @@ namespace ShopInGame
             //oyun içi ürün oluştur
             Product DolunayKilici = new Product()
             {
-                ItemId = 1,
-                ItemName = "+9 Dolunay Kılıcı", // aga be :)
+                Id = 1,
+                Name = "+9 Dolunay Kılıcı", // aga be :)
                 Price = 50,
             };
             // Gerçek Oyuncu Oluştur.
             Account uye1 = new Member
             {
                 TcNo = "11651651",
-                AccountID = 1,
-                AccountName = "ChaossEater",
+                ID = 1,
+                Name = "ChaossEater",
                 Password = "123",
                 FirstName = "Emrehan",
                 LastName = "Aydın",
