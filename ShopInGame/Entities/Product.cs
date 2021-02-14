@@ -7,48 +7,48 @@ namespace ShopInGame.Entities
 {
     public class Product:Item
     {
-        public Product()
-        {
-        }
-        public double ProductPrice { get; set; }
-        private double ProductDiscountPrice;
-        public double productDiscountPrice // Kapmanyalı fiyat
+        public Product(){}
+        private double productPrice;
+        public double ProductPrice { get { return productPrice; } set { productPrice = value; } }
+
+        private double productDiscountPrice;
+        public double ProductDiscountPrice // Kapmanyalı fiyat
         {
             get // İlk oluşturulan ürünler kampanyasız bir şekilde oluşturulurlarsa gerçek fiyatı korur. Bir önlem.
             {
-                if (IfHaveDiscount == null)
+                if (ifHaveDiscount == null)
                 {
-                    return ProductPrice;
+                    return productPrice;
                 }
                 else
                 {
-                    return ProductDiscountPrice;
+                    return productDiscountPrice;
                 }
-
             }
             set
             {
-                ProductDiscountPrice = value;
+                productDiscountPrice = value;
             }
         }
-        private ProductDiscount IfHaveDiscount;
-        public ProductDiscount ifHaveDiscount // Ürünün kampanyası üzerinde değişiklik yapıldığında ürünün kampanya fiyatını günceller.
+        private ProductDiscount ifHaveDiscount;
+        public ProductDiscount IfHaveDiscount // Ürünün kampanyası üzerinde değişiklik yapıldığında ürünün kampanya fiyatını günceller.
         {
             get
             {
-                return IfHaveDiscount;
+                return ifHaveDiscount;
             } 
             set
             {
-                IfHaveDiscount = value;
+                ifHaveDiscount = value;
                 if (ifHaveDiscount == null)
                 {
-                    ProductDiscountPrice = ProductPrice;
+                    productDiscountPrice = productPrice;
                 }
                 else
                 {
-                    ProductDiscountPrice = ProductPrice - (ProductPrice * ifHaveDiscount.DiscountValue / 100);
+                    productDiscountPrice = productPrice - (productPrice * ifHaveDiscount.DiscountValue / 100);
                 }
+                
             }
         }
     }

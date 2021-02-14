@@ -7,11 +7,21 @@ namespace ShopInGame
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
+            //Kayıt olma Servisi oluştur
             RegisterManager register = new RegisterManager(new CheckRealPerson());
+            
+            //Hesap Kimlik servisi oluştur
             AccountManager accountManager = new AccountManager();
             
-            //Kampanya oluşturulur
+            //market sistemi oluştur
+            ShopManager shopManager = new ShopManager();
+
+            //Ürün Kampanya sistemi oluşturuldu
+            DiscountManager discountManager = new DiscountManager();
+
+
+            //Kampanya oluştur
             ProductDiscount KisIndirimi = new ProductDiscount()
             {
                 DiscountName = "Kış İndirimi", // kampanya adı
@@ -19,21 +29,14 @@ namespace ShopInGame
             };
             //Kış indirimli adlı %10 luk indirim kampanyası
 
-            //oyun içi ürün ekle
+            //oyun içi ürün oluştur
             Product DolunayKilici = new Product()
             {
                 ItemId = 1,
-                ItemName = "+9 Dolunay Kılıcı :)",
+                ItemName = "+9 Dolunay Kılıcı", // aga be :)
                 ProductPrice = 50,
             };
-
-            //market sistemi oluştur
-            ShopManager shopManager = new ShopManager();
-            
-            //Ürün Kampanya sistemi oluşturuldu
-            DiscountManager discountManager = new DiscountManager();
-            
-            // sisteme gerçek bir kullanıcı ve hesap ekle(simule)
+            // Gerçek Oyuncu Oluştur.
             Account uye1 = new Member
             {
                 TcNo = "11651651",
@@ -45,6 +48,7 @@ namespace ShopInGame
                 DateBirth = new DateTime(1999, 8, 11)
             };
             
+
             // simule edilmiş özellikler.
             // kontrol et ve kullanıcıyı sisteme ekle
             register.Save(uye1);

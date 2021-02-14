@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ShopInGame.Entities
 {
-    public class Account:IEntity
+    public class Account
     {
         public Account()
         {

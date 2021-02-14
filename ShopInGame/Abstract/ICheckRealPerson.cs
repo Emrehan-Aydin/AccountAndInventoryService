@@ -7,9 +7,9 @@ namespace ShopInGame.Abstract
 {
     public interface ICheckRealPerson
     {
-        public bool CheckRealPerson(Account account)
+        public bool CheckRealPerson(Account account)// Gerçek bir kullanıcı mı ? 
         {
-            return true;
+            return true; // servis 
         }
     }
 }

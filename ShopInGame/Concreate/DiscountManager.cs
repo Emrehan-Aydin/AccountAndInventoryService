@@ -10,7 +10,8 @@ namespace ShopInGame.Concreate
     {
         public void Add(Product product,ProductDiscount productDiscount)
         {
-            product.ifHaveDiscount = productDiscount;
+            product.IfHaveDiscount = productDiscount;
+            Console.WriteLine("{0} Adlı ürüne {1} Adlı kampanya uygulanarak %{2} indirim tanımlandı",product.ItemName,productDiscount.DiscountName,productDiscount.DiscountValue);
         }
     }
 }
