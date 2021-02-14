@@ -11,7 +11,17 @@ namespace ShopInGame.Concreate
         public void Add(Product product,ProductDiscount productDiscount)
         {
             product.IfHaveDiscount = productDiscount;
-            Console.WriteLine("{0} Adlı ürüne {1} Adlı kampanya uygulanarak %{2} indirim tanımlandı",product.ItemName,productDiscount.DiscountName,productDiscount.DiscountValue);
+            Console.WriteLine("{0} iteminde {1} Kampanyası başlatılarak %{2} indirim tanımlandı.",product.ItemName,productDiscount.DiscountName,productDiscount.DiscountValue);
+        }
+        public void Remove(Product product, ProductDiscount productDiscount)
+        {
+            product.IfHaveDiscount = null;
+            Console.WriteLine("{0} iteminin {1} kampanyası sona erdi", product.ItemName, productDiscount.DiscountName);
+        }
+        public void Update(Product product, ProductDiscount productDiscount)
+        {
+            product.IfHaveDiscount = productDiscount;
+            Console.WriteLine("{0} iteminin kampanyası {1} kapmanyası olarak güncellendi.", product.ItemName, productDiscount.DiscountName, productDiscount.DiscountValue);
         }
     }
 }

@@ -27,6 +27,11 @@ namespace ShopInGame
                 DiscountName = "Kış İndirimi", // kampanya adı
                 DiscountValue = 50, // % indirim oranı
             };
+            ProductDiscount YazIndirimi = new ProductDiscount()
+            {
+                DiscountName = "Yaz İndirimi", // kampanya adı
+                DiscountValue = 75, // % indirim oranı
+            };
             //Kış indirimli adlı %10 luk indirim kampanyası
 
             //oyun içi ürün oluştur
@@ -56,9 +61,6 @@ namespace ShopInGame
             // kullanıcıyı güncelleştir
             accountManager.Update(uye1);
             
-            // Kullanıcı sil
-            accountManager.Delete(uye1);
-            
             // Kullanıcı Ürünü satın alır.
             shopManager.Buy(uye1,DolunayKilici);
             
@@ -67,7 +69,21 @@ namespace ShopInGame
             
             // Kullanıcı Kampanya Almış Ürünü satın alır.
             shopManager.Buy(uye1, DolunayKilici);
+            
+            //Ürüne Kampanya eklenir.
+            discountManager.Remove(DolunayKilici, KisIndirimi);
 
+            // Kullanıcı Kampanya Almış Ürünü satın alır.
+            shopManager.Buy(uye1, DolunayKilici);
+            
+            //Ürüne Kampanya eklenir.
+            discountManager.Update(DolunayKilici, YazIndirimi);
+
+            // Kullanıcı Kampanya Almış Ürünü satın alır.
+            shopManager.Buy(uye1, DolunayKilici);
+
+            // Kullanıcı sil
+            accountManager.Delete(uye1);
 
         }
     }
