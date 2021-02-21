@@ -9,7 +9,7 @@ namespace ShopInGame.Abstract
     {
         public bool CheckRealPerson(Account account)// Gerçek bir kullanıcı mı ? 
         {
-            return true; // servis 
+            return true; // true gerçek kullanıcı ; false fake kullanıc
         }
     }
 }

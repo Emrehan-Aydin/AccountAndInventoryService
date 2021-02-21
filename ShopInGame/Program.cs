@@ -1,4 +1,5 @@
-﻿using ShopInGame.Concreate;
+﻿using ShopInGame.Abstract;
+using ShopInGame.Concreate;
 using ShopInGame.Entities;
 using System;
 
@@ -10,9 +11,9 @@ namespace ShopInGame
         {   
             //Kayıt olma Servisi oluştur
             RegisterManager register = new RegisterManager(new CheckRealPerson());
-            
+
             //Hesap Kimlik servisi oluştur
-            AccountManager accountManager = new AccountManager();
+            IAccountManager accountManager = new AccountManager();
             
             //market sistemi oluştur
             ShopManager shopManager = new ShopManager();
@@ -27,12 +28,13 @@ namespace ShopInGame
                 DiscountName = "Kış İndirimi", // kampanya adı
                 DiscountValue = 50, // % indirim oranı
             };
+            //Yaz indirimi adlı %50 lik indirim kampanyası
             ProductDiscount YazIndirimi = new ProductDiscount()
             {
                 DiscountName = "Yaz İndirimi", // kampanya adı
                 DiscountValue = 75, // % indirim oranı
             };
-            //Kış indirimli adlı %10 luk indirim kampanyası
+            //Kış indirimi adlı %75 luk indirim kampanyası
 
             //oyun içi ürün oluştur
             Product DolunayKilici = new Product()
@@ -44,7 +46,7 @@ namespace ShopInGame
             // Gerçek Oyuncu Oluştur.
             Account uye1 = new Member
             {
-                TcNo = "11651651",
+                TcNo = "olmbakgit",
                 ID = 1,
                 Name = "ChaossEater",
                 Password = "123",
@@ -67,19 +69,19 @@ namespace ShopInGame
             //Ürüne Kampanya eklenir.
             discountManager.Add(DolunayKilici, KisIndirimi);
             
-            // Kullanıcı Kampanya Almış Ürünü satın alır.
+            // Kullanıcı Ürünü satın alır.
             shopManager.Buy(uye1, DolunayKilici);
             
             //Ürüne Kampanya eklenir.
             discountManager.Remove(DolunayKilici, KisIndirimi);
 
-            // Kullanıcı Kampanya Almış Ürünü satın alır.
+            // Kullanıcı Ürünü satın alır.
             shopManager.Buy(uye1, DolunayKilici);
             
-            //Ürüne Kampanya eklenir.
+            //Ürün Kampanyası güncellenir.
             discountManager.Update(DolunayKilici, YazIndirimi);
 
-            // Kullanıcı Kampanya Almış Ürünü satın alır.
+            // Kullanıcı Ürünü satın alır.
             shopManager.Buy(uye1, DolunayKilici);
 
             // Kullanıcı sil

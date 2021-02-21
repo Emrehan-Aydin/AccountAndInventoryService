@@ -13,11 +13,11 @@ namespace ShopInGame.Concreate
         {
             _checkRealPerson = checkRealPerson;
         }
-        public void Save(Account account)
-        {
-            if(_checkRealPerson.CheckRealPerson(account))
-            {  
-                Console.WriteLine(account.Name +" Kullanıcısı üye oldu!");
+        public void Save(Account account)// her türlü kayıt edicek
+        {// simule
+            if (_checkRealPerson.CheckRealPerson(account))
+            {
+                Console.WriteLine(account.Name + " Kullanıcısı üye oldu!");
             }
             else
             {
